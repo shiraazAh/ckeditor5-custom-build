@@ -36,6 +36,7 @@ import MediaEmbedToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoo
 import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak.js';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table.js';
+import ShiftEnter from '@ckeditor/ckeditor5-enter/src/shiftenter';
 import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
 import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
@@ -78,6 +79,7 @@ Editor.builtinPlugins = [
 	MediaEmbedToolbar,
 	PageBreak,
 	PasteFromOffice,
+	ShiftEnter,
 	Table,
 	TableCellProperties,
 	TableProperties,
