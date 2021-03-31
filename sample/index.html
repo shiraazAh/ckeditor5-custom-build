@@ -102,7 +102,37 @@
 		</p>
 	</footer>
 	<script src="../build/ckeditor.js"></script>
-	<script>ClassicEditor
+	<script>
+		const watchdog = new CKSource.Watchdog();
+		
+		window.watchdog = watchdog;
+		
+		watchdog.setCreator( ( element, config ) => {
+			return CKSource.Editor
+				.create( element, config )
+				.then( editor => {
+					
+					
+					
+		
+					
+					
+					
+		
+					return editor;
+				} )
+		} );
+		
+		watchdog.setDestructor( editor => {
+			
+			
+		
+			return editor.destroy();
+		} );
+		
+		watchdog.on( 'error', handleError );
+		
+		watchdog
 			.create( document.querySelector( '.editor' ), {
 				
 				toolbar: {
@@ -112,25 +142,40 @@
 						'bold',
 						'italic',
 						'underline',
-						'link',
+						'|',
 						'bulletedList',
 						'numberedList',
 						'|',
-						'highlight',
-						'fontFamily',
-						'fontSize',
-						'fontColor',
 						'outdent',
 						'indent',
+						'alignment',
 						'|',
-						'imageUpload',
+						'fontSize',
+						'fontBackgroundColor',
+						'fontColor',
+						'fontFamily',
+						'|',
 						'blockQuote',
+						'highlight',
+						'|',
+						'link',
 						'insertTable',
+						'-',
+						'CKFinder',
+						'imageInsert',
 						'mediaEmbed',
+						'|',
 						'htmlEmbed',
+						'horizontalLine',
+						'specialCharacters',
+						'pageBreak',
+						'|',
+						'wproofreader',
+						'|',
 						'undo',
 						'redo'
-					]
+					],
+					shouldNotGroupWhenFull: true
 				},
 				language: 'en',
 				image: {
@@ -152,24 +197,19 @@
 				},
 				licenseKey: '',
 				
-				
+				wproofreader: {
+				serviceId: window.prompt( 'Provide serviceId for WProofreader plugin:' ),
+				srcUrl: 'https://svc.webspellchecker.net/spellcheck31/wscbundle/wscbundle.js'
+			},
 			} )
-			.then( editor => {
-				window.editor = editor;
+			.catch( handleError );
 		
-				
-				
-				
+		function handleError( error ) {
+			console.error( 'Oops, something went wrong!' );
+			console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+			console.warn( 'Build id: z611upei4ky6-w1iv20ckknap' );
+			console.error( error );
+		}
 		
-				
-				
-				
-			} )
-			.catch( error => {
-				console.error( 'Oops, something went wrong!' );
-				console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
-				console.warn( 'Build id: u0awss7j1si6-e90cpe33tv0g' );
-				console.error( error );
-			} );
 	</script>
 </body>
