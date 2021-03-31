@@ -102,37 +102,7 @@
 		</p>
 	</footer>
 	<script src="../build/ckeditor.js"></script>
-	<script>
-		const watchdog = new CKSource.Watchdog();
-		
-		window.watchdog = watchdog;
-		
-		watchdog.setCreator( ( element, config ) => {
-			return CKSource.Editor
-				.create( element, config )
-				.then( editor => {
-					
-					
-					
-		
-					
-					
-					
-		
-					return editor;
-				} )
-		} );
-		
-		watchdog.setDestructor( editor => {
-			
-			
-		
-			return editor.destroy();
-		} );
-		
-		watchdog.on( 'error', handleError );
-		
-		watchdog
+	<script>ClassicEditor
 			.create( document.querySelector( '.editor' ), {
 				
 				toolbar: {
@@ -170,8 +140,6 @@
 						'specialCharacters',
 						'pageBreak',
 						'|',
-						'wproofreader',
-						'|',
 						'undo',
 						'redo'
 					],
@@ -197,19 +165,24 @@
 				},
 				licenseKey: '',
 				
-				wproofreader: {
-				serviceId: window.prompt( 'Provide serviceId for WProofreader plugin:' ),
-				srcUrl: 'https://svc.webspellchecker.net/spellcheck31/wscbundle/wscbundle.js'
-			},
+				
 			} )
-			.catch( handleError );
+			.then( editor => {
+				window.editor = editor;
 		
-		function handleError( error ) {
-			console.error( 'Oops, something went wrong!' );
-			console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
-			console.warn( 'Build id: z611upei4ky6-w1iv20ckknap' );
-			console.error( error );
-		}
+				
+				
+				
 		
+				
+				
+				
+			} )
+			.catch( error => {
+				console.error( 'Oops, something went wrong!' );
+				console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+				console.warn( 'Build id: b7439we76wwc-cn95mijdszqn' );
+				console.error( error );
+			} );
 	</script>
 </body>

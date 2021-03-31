@@ -7,14 +7,11 @@ import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment.js';
 import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
 import Autolink from '@ckeditor/ckeditor5-link/src/autolink.js';
-import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder.js';
 import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter.js';
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.js';
-import Code from '@ckeditor/ckeditor5-basic-styles/src/code.js';
-import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock.js';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
 import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor.js';
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
@@ -59,9 +56,6 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import Title from '@ckeditor/ckeditor5-heading/src/title.js';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
-import WProofreader from '@webspellchecker/wproofreader-ckeditor5/src/wproofreader.js';
-import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
-import Watchdog from '@ckeditor/ckeditor5-watchdog/src/editorwatchdog.js';
 
 class Editor extends ClassicEditor {}
 
@@ -71,14 +65,11 @@ Editor.builtinPlugins = [
 	AutoImage,
 	Autoformat,
 	Autolink,
-	Autosave,
 	BlockQuote,
 	Bold,
 	CKFinder,
 	CKFinderUploadAdapter,
 	CloudServices,
-	Code,
-	CodeBlock,
 	Essentials,
 	FontBackgroundColor,
 	FontColor,
@@ -120,11 +111,9 @@ Editor.builtinPlugins = [
 	TableCellProperties,
 	TableProperties,
 	TableToolbar,
-	Title,
+	// Title,
 	TodoList,
-	Underline,
-	WProofreader,
-	WordCount
+	Underline
 ];
 
-export default { Editor, Watchdog };
+export default Editor;
